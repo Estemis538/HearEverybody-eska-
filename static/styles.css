@@ -1,0 +1,200 @@
+/* Базовые настройки для правильного расчета размеров */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: #ffffff;
+  color: #0f8a2a;
+  overflow-x: hidden; /* Защита от горизонтальной прокрутки */
+}
+
+.wrap {
+  max-width: 720px;
+  margin: 20px auto 40px auto;
+  padding: 0 16px;
+}
+
+/* Навигация */
+.navbar {
+  background-color: #0f8a2a;
+  padding: 12px 0;
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky; /* Панель будет прилипать к верху при скролле */
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-content {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Центрируем ссылки */
+  position: relative;
+  min-height: 40px;
+}
+
+.logo {
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+  position: absolute;
+  left: 16px; /* Вместо right: 90% используем фиксированный отступ слева */
+}
+
+.nav-item {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 2vh;
+  margin: 0 15px; /* Отступы между ссылками */
+  transition: opacity 0.2s;
+}
+
+.nav-item:hover {
+  opacity: 0.8;
+}
+
+/* Контент */
+h1 {
+  margin: 0 0 12px 0;
+  font-weight: 650;
+  letter-spacing: 0.2px;
+  font-size: 1.8rem;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap; /* Чтобы кнопка и статус переносились, если не влезают */
+  align-items: center;
+  gap: 12px;
+  margin: 18px 0;
+}
+
+button {
+  background: #0f8a2a;
+  color: #ffffff;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  touch-action: manipulation; /* Улучшает отклик на нажатие в телефонах */
+}
+
+.result {
+  width: 100%;
+  border: 2px solid #0f8a2a;
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 18px;
+  color: #0f8a2a;
+  outline: none;
+  resize: none;
+}
+
+/* Адаптация Видео */
+#video {
+  width: 100%;         /* Видео всегда на всю ширину контейнера */
+  max-width: 100%;
+  height: auto;        /* Пропорции сохраняются */
+  border-radius: 12px;
+  margin-top: 20px;
+  background: #f0f0f0;
+}
+
+/* ————— МОБИЛЬНАЯ ВЕРСИЯ (Media Queries) ————— */
+
+@media (max-width: 600px) {
+  .navbar-content {
+    flex-direction: column; /* На очень узких экранах элементы встают друг под друга */
+    gap: 10px;
+  }
+
+  .logo {
+    position: static; /* Убираем абсолютное позиционирование для мобилок */
+    margin-bottom: 5px;
+  }
+
+  .nav-item {
+    font-size: 0.9rem;
+    margin: 0 10px;
+  }
+
+  h1 {
+    font-size: 1.5rem; /* Уменьшаем заголовок на телефоне */
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  button {
+    width: 100%; /* Кнопка на всю ширину для удобства нажатия пальцем */
+    text-align: center;
+  }
+}
+
+#video {
+  transform: scaleX(-1);
+}
+
+
+.animationstart{
+  display:flex;
+  justify-content: center;
+  background-color: #b2c28c;
+  width:101%;
+  height:101%;
+  position: absolute;
+  z-index:10000;
+  animation:anim_start 1.6s forwards;
+}
+.animationstart img{
+  height:101%;
+}
+#tap{
+  position: absolute;
+  background-color: #b2c28c;
+  width:10%;
+  border:none;
+  height:30%;
+  top:80%;
+  left:70%;
+}
+
+@keyframes anim_start {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  99% {
+    opacity: 0;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden; /* Элемент реально исчезает */
+  }
+}
+/* Анимация мигания кнопки при записи */
+#recordBtn.recording {
+    background: #ff4d4d;
+    animation: pulse 1.5s infinite;
+}
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+

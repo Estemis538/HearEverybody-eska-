@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>HearEverybody</title>
+    <link rel="icon" href="/materials/Gemini_Generated_Image_ibh7l2ibh7l2ibh7.png">
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="animationstart">
+      <img src="/materials/Gemini_Generated_Image_ibh7l2ibh7l2ibh7.png">
+      <hr id="tap">
+    </div>
+
+    <nav class="navbar">
+      <div class="navbar-content">
+    <a href="#" class="logo">HearEverybody</a>
+    <a href="#" class="nav-item">Главная</a>
+    <a href="/static/alphabit.html" class="nav-item">Алфавиты</a>
+  </div>
+</nav>
+    <div class="wrap">
+      <h1>Переводчик жестов</h1>
+      <p class="hint">Включите камеру и покажите одну из 20 базовых поз. Слово появится ниже.</p>
+
+      <div class="controls">
+        <button id="toggleBtn" type="button">Включить камеру</button>
+        <span id="status" class="status">Камера выключена</span>
+      </div>
+
+      <label for="currentWord" class="label">Текущее слово:</label>
+      <textarea id="currentWord" class="result" rows="1" placeholder="—" readonly></textarea>
+
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 15px; margin-bottom: 6px;">
+        <label for="fullText" class="label" style="margin-bottom: 0;">Собранный текст:</label>
+        <button id="clearBtn" type="button" style="padding: 6px 10px; font-size: 14px;">Очистить</button>
+      </div>
+      <textarea id="fullText" class="result" rows="4" placeholder="Здесь будет собираться текст..."></textarea>
+
+      <label for="voiceText" class="label">Распознанный голос:</label>
+<textarea id="voiceText" class="result" rows="3" placeholder="Здесь появится текст из микрофона..." readonly></textarea>
+
+<div class="translator-box">
+    <div class="controls">
+        <button id="recordBtn" type="button" disabled>Загрузка...</button>
+        <span id="voice-status" class="status">Ожидание модели</span>
+    </div>
+</div>
+      <video id="video" autoplay playsinline muted></video>
+      <canvas id="canvas" width="320" height="240" hidden></canvas>
+    </div>
+
+
+
+    
+    <script src="/static/app.js"></script>
+    <script type="module" src="/static/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,146 @@
+
+
+
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: #ffffff;
+      color: #0f8a2a;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+      font-weight: 700;
+      font-size: 2rem;
+    }
+
+    .table-container {
+      max-width: 900px;
+      margin: 20px auto 40px auto;
+      padding: 0 16px;
+      overflow-x: auto; /* Для маленьких экранов */
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+      font-size: 1rem;
+    }
+
+    th, td {
+      border: 2px solid #0f8a2a;
+      padding: 8px 12px;
+      font-weight: 500;
+    }
+
+    th {
+      background-color: #0f8a2a;
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f0f0f0;
+    }
+
+    tr:hover {
+      background-color: #d4efd4;
+    }
+
+    @media (max-width: 600px) {
+      th, td {
+        padding: 6px 8px;
+        font-size: 0.9rem;
+      }
+    }
+.navbar {
+  background-color: #0f8a2a;
+  padding: 12px 0;
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky; /* Панель будет прилипать к верху при скролле */
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-content {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Центрируем ссылки */
+  position: relative;
+  min-height: 40px;
+}
+
+.logo {
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+  position: absolute;
+  left: 16px; /* Вместо right: 90% используем фиксированный отступ слева */
+}
+
+.nav-item {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 2vh;
+  margin: 0 15px; /* Отступы между ссылками */
+  transition: opacity 0.2s;
+}
+
+.nav-item:hover {
+  opacity: 0.8;
+}
+
+
+@media (max-width: 600px) {
+  /* Навигация */
+  .navbar-content {
+    flex-direction: column; /* Ссылки и логотип друг под другом */
+    align-items: flex-start;
+    gap: 8px;
+    padding: 0 12px;
+  }
+
+  .logo {
+    position: static; /* Логотип сверху */
+    margin-bottom: 4px;
+    font-size: 1rem;
+  }
+
+  .nav-item {
+    font-size: 0.9rem;
+    margin: 4px 0;
+  }
+
+  /* Заголовок */
+  h1 {
+    font-size: 1.5rem;
+    margin-top: 16px;
+  }
+
+  /* Таблица */
+  .table-container {
+    padding: 0 8px;
+    margin: 10px auto 20px auto;
+  }
+
+  table {
+    font-size: 0.85rem;
+  }
+
+  th, td {
+    padding: 4px 6px;
+  }
+
+  tr:hover {
+    background-color: #d4efd4;
+  }
+}
